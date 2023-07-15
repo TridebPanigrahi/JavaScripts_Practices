@@ -36,3 +36,53 @@
 // console.log(getWordReverse(str))
 
 ////---------------------------------------------------------------
+/////==============================================================
+
+///// find maximum occuring charecter
+//// output should be 'a'
+
+
+//// 1st approach
+// let str = 'thisisjavaScriptcodeandyouhavetofindmaximumcharecter'
+
+// function findMaxCharecter(str){
+//     let maxcount=0
+//     let arr = str.split('')
+//     let t=arr[0]
+//     for( let i=0; i<arr.length;i++){
+//         let count =1
+//         for(let j=i+1;j<arr.length;j++){
+//             if(arr[i]=== arr[j] && arr[j]!='-1'){
+//                 count= count+1
+//                 arr[j]='-1'
+//             }
+//         }
+//         if(count>maxcount){
+//             maxcount = count
+//             t=arr[i]
+//         }
+//     }
+//     return t
+// }
+// console.log(findMaxCharecter(str))
+
+////=========================================================================
+let obj = {
+    employee: {
+      address: { name: 'abc', age: 20 }
+    },
+    employee1: { name: 'avf', age: 25 }
+  };
+  
+  function getAgeByNameRecursive(obj, name) {
+    for (let key in obj) {
+        if (obj[key] && obj[key].name === name) {
+            return obj[key].age;
+        }
+        const age = getAgeByNameRecursive(obj[key], name);
+        if (age !== null) {
+            return age;
+        }
+      } 
+    }
+  console.log(getAgeByNameRecursive(obj, 'avf'));
